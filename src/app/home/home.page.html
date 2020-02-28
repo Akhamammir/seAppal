@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Ruta {{Route}}&nbsp;&nbsp;&nbsp;&nbsp;{{DoneCount + "/" +Total}}
+    </ion-title>
+    <ion-buttons slot="primary">
+        <ion-icon slot="icon-only" mode="ios" [name]="thisFinishIcon" [color]="thisFinish"></ion-icon>
+    </ion-buttons>
+    <ion-progress-bar [value]="Done" buffer="0" [color]="color"></ion-progress-bar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="welcome-card">
+      <img src="/assets/shapes.svg" alt="" />
+      <ion-card-header>
+        <ion-card-subtitle>Medidor: {{Serial}}</ion-card-subtitle>
+        <ion-card-title>Consecutivo: {{Contract}}</ion-card-title>
+        <ion-card-subtitle>Lectura Actual: {{Current}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col>
+            <ion-item mode="ios">
+              <ion-label color="primary" slot="start">Calle</ion-label>
+              <ion-input [value]="Street" readonly mode="ios"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item mode="ios">
+              <ion-label color="primary" slot="start">Numero</ion-label>
+              <ion-input [value]="No" readonly mode="ios"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item mode="ios">
+              <ion-label color="primary" slot="start">Colonia</ion-label>
+              <ion-input [value]="Col" readonly mode="ios"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item mode="ios">
+              <ion-label color="primary" slot="start">Propietario</ion-label>
+              <ion-input [value]="Prop" readonly mode="ios"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item mode="ios">
+              <ion-label color="primary" slot="start">Comentario 1</ion-label>
+              <ion-input [value]="Comment[0]" maxlength="25" mode="ios"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item mode="ios">
+              <ion-label color="primary" slot="start">Comentario 2</ion-label>
+              <ion-input [value]="Comment[1]" maxlength="25" mode="ios"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item mode="ios" (click)="anom(0)">
+              <ion-label color="primary" slot="start">Anomalia 1</ion-label>
+              <ion-input [value]="anomstxt[0]" readonly maxlength="25" mode="ios"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item mode="ios" (click)="anom(1)">
+              <ion-label color="primary" slot="start">Anomalia 2</ion-label>
+              <ion-input [value]="anomstxt[1]" readonly mode="ios"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item mode="ios" (click)="anom(2)">
+              <ion-label color="primary" slot="start">Anomalia 3</ion-label>
+              <ion-input [value]="anomstxt[2]" readonly maxlength="25" mode="ios"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    <ion-fab vertical="top" horizontal="start" slot="fixed" mode="ios">
+      <ion-fab-button (click)="move(false)" [disabled]="pos == 0"  class="Fabs">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-fab vertical="top" horizontal="end" slot="fixed" mode="ios">
+      <ion-fab-button (click)="move(true)" [disabled]="pos == Total" class="Fabs">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>
+<ion-footer>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="secondary">
+      <ion-button (click)="write()" class="icons">
+        <ion-icon slot="icon-only" name="finger-print"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Licenciado por: <b>ECOSTA</b></ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="read()" class="icons">
+        <ion-icon slot="icon-only" mode="ios" name="create"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

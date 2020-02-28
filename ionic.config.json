@@ -1,0 +1,7 @@
+{
+  "name": "seapalLecture",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
